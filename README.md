@@ -57,7 +57,7 @@ pip install -r requirements.txt
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/deep-research-agent.git
+git clone https://github.com/your-username/Deep-Research-Agent.git
 ```
 ### 2. Run the file
 ```bash
