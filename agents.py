@@ -35,16 +35,15 @@ def fetch_web_data(state:State, max_results: int = 5) -> dict:
         search_depth="advanced",
         max_results=max_results
     )
-    # print(response)
     result = response['results']
-    urls = [res["url"] for res in result]
+    contents = [res["content"] for res in result]
     docs = []
-    for url in urls:
+    for content in contents:
         try:
-            html = requests.get(url, timeout=5).text
-            soup = BeautifulSoup(html, "html.parser")
-            text = soup.get_text(separator="\n").strip()
-            docs.append(text[:500])
+            # html = requests.get(url, timeout=5).text
+            # soup = BeautifulSoup(html, "html.parser")
+            # text = soup.get_text(separator="\n").strip()
+            docs.append(content[:1000])
         except Exception:
             docs.append("Failed to fetch content.")
     return {
@@ -82,17 +81,23 @@ app = graph.compile()
 
 
 def ask_query():
-    query = input('Ask you Question:')
-    initial_state = {
-        "messages": [
-            HumanMessage(content=query)
-        ],
-        "docs": [],
-        "answer": ""
-    }
+    while True:
+        query = input('Ask you Question:')
+        
+        if(query=='Quit' or query=='q'):
+            print('Good Bye')
+            break
+        
+        initial_state = {
+            "messages": [
+                HumanMessage(content=query)
+            ],
+            "docs": [],
+            "answer": ""
+        }
 
-    final_state = app.invoke(initial_state)
+        final_state = app.invoke(initial_state)
 
-    print(final_state['answer'])
+        print(final_state['answer'])
     
 ask_query()
