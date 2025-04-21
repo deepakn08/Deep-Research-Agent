@@ -1,6 +1,6 @@
 # 🧠 Deep Research AI Agent
 
-This project is a Streamlit-based interactive research assistant powered by LangGraph and autonomous agents. It allows users to input a query, after which the system crawls the web, extracts relevant information, and drafts an AI-generated answer — all using a dual-agent setup.
+This project is an interactive research assistant powered by LangGraph and autonomous agents. It allows users to input a query, after which the system crawls the web, extracts relevant information, and drafts an AI-generated answer — all using a dual-agent setup.
 
 ---
 
@@ -11,11 +11,11 @@ The core idea is built on **LangGraph**, which enables agentic workflows using a
 ### 🔗 Agentic System Architecture:
 
 1. **Query Input**  
-   The user enters a question via the Streamlit UI.
+   The user enters a question.
 
 2. **Web Crawling Agent (Node 1)**  
    - Uses the **Tavily API** to perform a deep web search.
-   - Each URL is scraped using **BeautifulSoup**, extracting text data.
+   - From Each URL we extract the content in it.
    - A list of document snippets is returned as `docs`.
 
 3. **Answer Drafting Agent (Node 2)**  
