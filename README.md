@@ -25,11 +25,6 @@ The core idea is built on **LangGraph**, which enables agentic workflows using a
 4. **Graph Execution**  
    - The graph is built using `langgraph`, with nodes for crawling and drafting.
    - Upon query submission, the state flows through the graph and the final response is shown.
-
-5. **Streamlit UI**  
-   - Interactive, loop-based interface mimicking a chat-like experience.
-   - Supports session memory to retain previous conversations.
-
 ---
 
 ## 🧰 Major Libraries Used
